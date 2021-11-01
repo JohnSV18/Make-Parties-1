@@ -1,0 +1,28 @@
+{
+  "name": "make-parties-1",
+  "version": "1.0.0",
+  "description": "Come join the party! Learn all about how to use Node.js and Handlebars to build a web app where people can create and RSVP to events!",
+  "main": "app.js",
+  "dependencies": {
+    "@handlebars/allow-prototype-access": "^1.0.5",
+    "express": "^4.17.1",
+    "express-handlebars": "^5.3.4"
+  },
+  "devDependencies": {
+    "nodemon": "^2.0.14"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "dev": "nodemon app.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JohnSV18/Make-Parties-1.git"
+  },
+  "author": "John Marcos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/JohnSV18/Make-Parties-1/issues"
+  },
+  "homepage": "https://github.com/JohnSV18/Make-Parties-1#readme"
+}
