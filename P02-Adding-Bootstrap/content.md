@@ -133,7 +133,8 @@ Let's add some bootstrap to make things look better. First we'll wrap things in 
 >
 > Update `views/events-index.handlebars` to the following:
 
->```html
+>
+```html
   <!-- events-index -->
   <div class="row mt-4">
       <div class="col-lg-6 offset-lg-3">
@@ -145,7 +146,7 @@ Let's add some bootstrap to make things look better. First we'll wrap things in 
           {{/each}}
       </div>
   </div>
->```
+```
 
 Next we'll add some Bootstrap Card enhanced html inside of the `#each`:
 
@@ -153,7 +154,7 @@ Next we'll add some Bootstrap Card enhanced html inside of the `#each`:
 >
 > Update the inside of the `#each` in `views/events-index.handlebars` to the following:
 
-> ```html
+```html
   {{#each events}}
     <div class="card mt-3">
       <img class="card-img-top" src="{{this.imgUrl}}" alt="Card image cap">
@@ -167,7 +168,7 @@ Next we'll add some Bootstrap Card enhanced html inside of the `#each`:
       </div>
     </div>
   {{/each}}
->```
+```
 
 # Product So Far
 
