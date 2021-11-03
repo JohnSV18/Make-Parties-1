@@ -1,0 +1,22 @@
+<form method="POST" action="/events">
+  <fieldset>
+      <legend>New Event</legend>
+      {{!-- TITLE --}}
+      <p>
+          <label for="title">Title</label><br>
+          <input type="text" name="title" />
+      </p>
+      <p>
+          <label for="description">Movie Title</label><br>
+          <input type="text" name="descriptiom" />
+      </p>
+      <p>
+          <label for="imgUrl">Image URL</label>
+          <input type="text" placeholder="" name="imgUrl" />
+      </p>
+  </fieldset>
+  {{!-- BUTTON --}}
+  <p>
+      <button type="submit">Save Event</button>
+  </p>
+</form>
