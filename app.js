@@ -14,12 +14,6 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main', handlebars: allowInsecu
 // use handlebars to render
 app.set('view engine', 'handlebars');
 
-// OUR MOCK ARRAY OF PROJECTS
-var events = [
-    { title: "I am your first event", desc: "A great event that is super fun to look at and good", imgUrl: "https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA4OC85MTEvb3JpZ2luYWwvZ29sZGVuLXJldHJpZXZlci1wdXBweS5qcGVn" },
-    { title: "I am your second event", desc: "A great event that is super fun to look at and good", imgUrl: "https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA4OC85MTEvb3JpZ2luYWwvZ29sZGVuLXJldHJpZXZlci1wdXBweS5qcGVn" },
-    { title: "I am your third event", desc: "A great event that is super fun to look at and good", imgUrl: "https://img.purch.com/w/660/aHR0cDovL3d3dy5saXZlc2NpZW5jZS5jb20vaW1hZ2VzL2kvMDAwLzA4OC85MTEvb3JpZ2luYWwvZ29sZGVuLXJldHJpZXZlci1wdXBweS5qcGVn" }
-];
 // GETS ALL EVENTS AND DISPLAYS THEM
 app.get('/', (req, res) => {
     models.Event.findAll({ order: [['createdAt', 'DESC']] }).then(events => {
@@ -33,11 +27,20 @@ app.get('/events/new', (req, res) => {
 //Create
 app.post('/events', (req, res) => {
   models.Event.create(req.body).then(event => {
-    res.redirect('/');
+    res.redirect(`/events/${event.id}`);
   }).catch((err) => {
     console.log(err)
   });
 })
+// SHOW
+app.get('/events/:id', (req, res) => {
+  // find an event by it's id that was passed through req.params
+  models.Event.findByPk(req.params.id).then((event) => {
+    res.render("events-show", { event:event })
+  }).catch((err) => {
+    console.log(err.message)
+  })
+});
 
 const port = process.env.PORT || 3000;
 
