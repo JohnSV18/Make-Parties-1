@@ -17,11 +17,7 @@ app.engine('handlebars', exphbs({ defaultLayout: 'main', handlebars: allowInsecu
 app.set('view engine', 'handlebars');
 
 // GETS ALL EVENTS AND DISPLAYS THEM
-app.get('/', (req, res) => {
-    models.Event.findAll({ order: [['createdAt', 'DESC']] }).then(events => {
-      res.render('events-index', { events: events});
-    })
-  })
+require('./controllers/events')(app, models);
 
 app.get('/events/new', (req, res) => {
   res.render('events-new', {})
