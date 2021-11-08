@@ -18,6 +18,7 @@ app.set('view engine', 'handlebars');
 
 // GETS ALL EVENTS AND DISPLAYS THEM
 require('./controllers/events')(app, models);
+require('./controllers/rsvps')(app, models);
 
 app.get('/events/new', (req, res) => {
   res.render('events-new', {})
@@ -31,14 +32,14 @@ app.post('/events', (req, res) => {
   });
 });
 // SHOW
-app.get('/events/:id', (req, res) => {
-  // find an event by it's id that was passed through req.params
-  models.Event.findByPk(req.params.id).then((event) => {
-    res.render("events-show", { event:event })
-  }).catch((err) => {
-    console.log(err.message)
-  })
-});
+// app.get('/events/:id', (req, res) => {
+//   // find an event by it's id that was passed through req.params
+//   models.Event.findByPk(req.params.id).then((event) => {
+//     res.render("events-show", { event:event })
+//   }).catch((err) => {
+//     console.log(err.message)
+//   })
+// });
 // EDIT
 app.get('/events/:id/edit', (req, res) => {
   models.Event.findByPk(req.params.id).then((event) => {
