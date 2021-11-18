@@ -31,15 +31,6 @@ app.post('/events', (req, res) => {
     console.log(err)
   });
 });
-// SHOW
-// app.get('/events/:id', (req, res) => {
-//   // find an event by it's id that was passed through req.params
-//   models.Event.findByPk(req.params.id).then((event) => {
-//     res.render("events-show", { event:event })
-//   }).catch((err) => {
-//     console.log(err.message)
-//   })
-// });
 // EDIT
 app.get('/events/:id/edit', (req, res) => {
   models.Event.findByPk(req.params.id).then((event) => {
